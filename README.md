@@ -1,24 +1,14 @@
 # Black November Cursos
 
-crie uma pagina com apenas uma dobra. escrito black november cursos. e nada mais
+Página Passaporte Vitalício importada do ZIP fornecido.
 
-This project was built with [Lovable](https://lovable.dev).
+- `src/content/passaporte.html`: documento HTML original, servido na rota `/`.
+- `public/mirror/`: estilos, scripts, imagens e fontes do espelho.
+- `public/pages/`: páginas adicionais incluídas no arquivo.
+- `public/assets/`: ícones e dados estruturados incluídos no arquivo.
 
-## Build with Lovable
+A estrutura TanStack Start/Lovable foi preservada. Para desenvolver, execute
+`npm install` e `npm run dev`. Para gerar a versão de produção, `npm run build`.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d7cdde23-ee72-4e54-b711-826bdc059956).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+Os links, integrações e serviços externos continuam apontando para os destinos
+presentes no arquivo original e podem depender do site de origem.
