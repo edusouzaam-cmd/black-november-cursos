@@ -4,7 +4,7 @@ import passaporteHtml from "../content/passaporte.html?raw";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Passaporte Vitalício | Black November ENGETELES" },
+      { title: "Combo 3 Certificações | Black November ENGETELES" },
       { name: "description", content: "3 certificações completas pelo preço de uma!" },
     ],
   }),
@@ -16,7 +16,7 @@ function PassaportePage() {
   // on the client as well, including inside Lovable's preview.
   return (
     <iframe
-      title="Passaporte Vitalício Black November ENGETELES"
+      title="Combo 3 Certificações Black November ENGETELES"
       srcDoc={passaporteHtml}
       style={{
         position: "fixed",

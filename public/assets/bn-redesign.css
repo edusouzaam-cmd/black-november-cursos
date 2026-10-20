@@ -55,12 +55,34 @@ body {
   }
 }
 
-/* ---------- Primeira dobra ---------- */
+/* ---------- Primeira dobra (layout centralizado) ---------- */
+.elementor-103645 .elementor-element.elementor-element-822c013 {
+  background-image: radial-gradient(45% 55% at 50% 42%, rgba(0, 110, 255, 0.3) 0%, rgba(0, 110, 255, 0) 70%) !important;
+}
+.elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+/* a coluna da direita só tinha a arte antiga; agora a arte fica no centro */
+.elementor-103645 .elementor-element.elementor-element-c54551e {
+  display: none !important;
+}
 .elementor-103645 .elementor-element.elementor-element-b1e678b {
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  align-items: center !important;
   gap: 20px !important;
+  text-align: center;
+}
+.elementor-103645 .elementor-element.elementor-element-e60d67c {
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 12px !important;
 }
 .elementor-element-e60d67c { order: 0; }
 .elementor-element-5b76344 { order: 2; }
+.bn-hero-sub { order: 3; }
 .elementor-element-81dd902 { order: 4; }
 .elementor-element-dd1525c { order: 5; }
 .elementor-element-19ec1e6,
@@ -68,10 +90,6 @@ body {
   display: none !important;
 }
 
-/* selo + contagem regressiva centralizados no topo da primeira dobra */
-.elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner {
-  flex-wrap: wrap !important;
-}
 .bn-hero-top {
   display: flex;
   flex: 0 0 100%;
@@ -79,24 +97,25 @@ body {
   align-items: center;
   gap: 16px;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 8px;
   text-align: center;
 }
 .bn-hero-top .bn-eyebrow {
   align-self: center;
 }
 .bn-hero-top .bn-countdown {
-  max-width: 560px;
+  max-width: 480px;
 }
 .bn-hero-top .bn-countdown__title {
   text-align: center;
 }
 
-/* arte da primeira dobra: selo Black November sobre os mockups */
+/* arte: mockups grandes com o selo Black November sobreposto na base */
 .bn-hero-art {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  padding-bottom: 9%;
 }
 .elementor-103645 .bn-hero-art img {
   display: block;
@@ -104,25 +123,34 @@ body {
   border-radius: 0 !important;
   box-shadow: none !important;
 }
-.elementor-103645 .bn-hero-art .bn-hero-art__logo {
-  position: relative;
-  z-index: 1;
-  width: 48% !important;
-  max-width: 300px !important;
-  margin-bottom: 28px;
-  filter: drop-shadow(0 10px 30px rgba(0, 120, 255, 0.35));
-}
 .elementor-103645 .bn-hero-art .bn-hero-art__mockups {
   width: 100% !important;
-  max-width: 680px !important;
+  max-width: 720px !important;
 }
-/* desktop: afasta a arte do texto e do botão */
-@media (min-width: 1025px) {
-  .elementor-element-c54551e .bn-hero-art {
-    margin-left: 64px;
-    /* avança sobre a margem lateral livre, sem encostar na borda da tela */
-    margin-right: min(0px, calc((1140px - 100vw) / 2 + 24px));
-  }
+.elementor-103645 .bn-hero-art .bn-hero-art__logo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  width: 32% !important;
+  max-width: 240px !important;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 12px 30px rgba(0, 120, 255, 0.45));
+}
+
+.bn-hero-sub {
+  max-width: 640px;
+  margin: 0 auto !important;
+  color: var(--bn-muted);
+  font-family: var(--bn-font);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.bn-highlight {
+  background: var(--bn-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .bn-eyebrow {
@@ -152,19 +180,25 @@ body {
 .elementor-103645 .elementor-element.elementor-element-5b76344 p {
   margin: 0 !important;
   font-family: var(--bn-font) !important;
-  font-size: clamp(34px, 4.4vw, 58px) !important;
+  font-size: clamp(32px, 4.6vw, 62px) !important;
   font-weight: 700 !important;
-  line-height: 1.08 !important;
+  line-height: 1.1 !important;
   letter-spacing: -0.02em;
+  text-align: center;
   color: var(--bn-text) !important;
 }
 
 .elementor-103645 .elementor-element.elementor-element-81dd902 {
-  text-align: left !important;
+  text-align: center !important;
+}
+.elementor-103645 .elementor-element.elementor-element-dd1525c {
+  width: 100%;
+  max-width: 460px;
 }
 .bn-hero-price {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2px;
   font-family: var(--bn-font);
   color: var(--bn-muted);
