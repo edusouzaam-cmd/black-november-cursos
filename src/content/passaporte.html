@@ -159,6 +159,45 @@
 				<div class=elementor-widget-container>
 									<p>+40 cursos com acesso vitalício pelo preço de 1!</p>								</div>
 				</div>
+				<div class="bn-countdown" data-date="2026-11-01T00:00:00-03:00">
+					<style>
+						.bn-countdown{font-family:poppins,sans-serif;color:#fff;margin:16px 0;width:100%}
+						.bn-countdown__title{font-size:16px;font-weight:600;margin:0 0 10px;text-transform:uppercase;letter-spacing:1px}
+						.bn-countdown__title strong{color:#00a4f3}
+						.bn-countdown__items{display:flex;gap:10px}
+						.bn-countdown__item{flex:1;background:#00a4f3;border-radius:8px;padding:10px 4px;text-align:center}
+						.bn-countdown__digits{display:block;font-size:32px;font-weight:700;line-height:1.1}
+						.bn-countdown__label{display:block;font-size:12px;text-transform:uppercase}
+						@media (max-width:767px){.bn-countdown__digits{font-size:26px}}
+					</style>
+					<p class="bn-countdown__title">A <strong>Black November</strong> começa em:</p>
+					<div class="bn-countdown__items">
+						<div class="bn-countdown__item"><span class="bn-countdown__digits" data-unit="days">00</span><span class="bn-countdown__label">Dias</span></div>
+						<div class="bn-countdown__item"><span class="bn-countdown__digits" data-unit="hours">00</span><span class="bn-countdown__label">Horas</span></div>
+						<div class="bn-countdown__item"><span class="bn-countdown__digits" data-unit="minutes">00</span><span class="bn-countdown__label">Minutos</span></div>
+						<div class="bn-countdown__item"><span class="bn-countdown__digits" data-unit="seconds">00</span><span class="bn-countdown__label">Segundos</span></div>
+					</div>
+					<script>
+						(function(){
+							var el=document.currentScript.parentNode;
+							var target=new Date(el.getAttribute("data-date")).getTime();
+							function pad(n){return n<10?"0"+n:String(n)}
+							function tick(){
+								var diff=target-Date.now();
+								if(diff<=0){
+									el.innerHTML='<p class="bn-countdown__title">A <strong>Black November</strong> já começou!</p>';
+									clearInterval(timer);
+									return;
+								}
+								var s=Math.floor(diff/1000);
+								var values={days:Math.floor(s/86400),hours:Math.floor(s%86400/3600),minutes:Math.floor(s%3600/60),seconds:s%60};
+								for(var unit in values){el.querySelector('[data-unit="'+unit+'"]').textContent=pad(values[unit])}
+							}
+							var timer=setInterval(tick,1000);
+							tick();
+						})();
+					</script>
+				</div>
 				<div class="elementor-element elementor-element-19ec1e6 elementor-widget elementor-widget-spacer" data-id=19ec1e6 data-element_type=widget data-e-type=widget data-widget_type=spacer.default>
 				<div class=elementor-widget-container>
 							<div class=elementor-spacer>
