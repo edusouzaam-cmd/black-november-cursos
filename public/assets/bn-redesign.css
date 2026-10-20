@@ -745,28 +745,117 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.elementor-103645 .carrocel {
-  filter: none !important;
+/* Esteira contínua: duas sequências idênticas, cada uma com seu espaço final.
+   13 logos × (168px + 12px) / 90s = 26px/s, sem aceleração ou paradas. */
+.elementor-103645 .elementor-element.elementor-element-2dd3667 {
+  min-width: 0;
+  max-width: 100%;
 }
 .elementor-103645 .elementor-element.elementor-element-2dd3667 > .elementor-widget-container {
   padding: 8px 0 0 !important;
 }
-.elementor-103645 .elementor-element.elementor-element-2dd3667 .elementor-main-swiper {
-  height: 88px !important;
+.bn-logo-marquee {
+  --bn-logo-width: 168px;
+  --bn-logo-gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
 }
-.elementor-element-2dd3667 .elementor-carousel-image {
-  height: 100%;
+.bn-logo-marquee__viewport {
+  order: -1;
+  flex: 0 0 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.bn-logo-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: bn-logo-conveyor 90s linear infinite;
+}
+.bn-logo-marquee__group {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--bn-logo-gap);
+  margin: 0 !important;
+  padding: 0 var(--bn-logo-gap) 0 0 !important;
+  list-style: none !important;
+}
+.bn-logo-marquee__item {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 var(--bn-logo-width);
+  align-items: center;
+  justify-content: center;
+  width: var(--bn-logo-width);
+  height: 88px;
   padding: 16px 18px;
+  overflow: hidden;
   border-radius: 12px;
-  background-color: #fff;
-  background-origin: content-box;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #fff;
+}
+.bn-logo-marquee__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   filter: grayscale(1);
   transition: filter 0.2s ease;
 }
-.elementor-element-2dd3667 .elementor-carousel-image:hover {
+.bn-logo-marquee__item:hover img {
   filter: none;
+}
+.bn-logo-marquee__toggle {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 4px 0 4px auto;
+  accent-color: var(--bn-accent);
+  cursor: pointer;
+}
+.bn-logo-marquee__toggle:focus-visible {
+  outline: 2px solid #8ddfff;
+  outline-offset: 3px;
+}
+.bn-logo-marquee__label {
+  margin-right: 2px;
+  color: var(--bn-muted);
+  font: 400 12px/1.5 var(--bn-font);
+  cursor: pointer;
+}
+.bn-logo-marquee__toggle:checked ~ .bn-logo-marquee__viewport .bn-logo-marquee__track,
+.bn-logo-marquee:hover .bn-logo-marquee__track {
+  animation-play-state: paused;
+}
+@keyframes bn-logo-conveyor {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (max-width: 767px) {
+  .bn-logo-marquee {
+    --bn-logo-width: 144px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bn-logo-marquee__track {
+    animation: none;
+    transform: none;
+  }
+  .bn-logo-marquee__viewport {
+    overflow-x: auto;
+  }
+  .bn-logo-marquee__group[aria-hidden="true"],
+  .bn-logo-marquee__toggle,
+  .bn-logo-marquee__label {
+    display: none;
+  }
+  .bn-logo-marquee__item img {
+    transition: none;
+  }
 }
 
 /* ---------- Prova social ---------- */
