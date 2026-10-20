@@ -320,64 +320,121 @@ body {
 
 /* ---------- Benefícios ---------- */
 .elementor-103645 .elementor-element.elementor-element-09b8e6d > .e-con-inner {
-  gap: 16px !important;
+  gap: 18px !important;
+  align-items: stretch !important;
 }
-.elementor-element-09b8e6d .elementor-widget-icon-box {
+.elementor-element-09b8e6d .elementor-widget-icon-box,
+.elementor-element-09b8e6d .elementor-widget-icon-box > .elementor-widget-container {
   height: 100%;
 }
 .elementor-element-09b8e6d .elementor-icon-box-wrapper {
+  box-sizing: border-box;
   height: 100%;
-  padding: 28px 20px;
-  border: 1px solid var(--bn-border);
-  border-radius: var(--bn-radius);
-  background: var(--bn-surface);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  padding: 28px 18px;
+  border: 1px solid rgba(114, 174, 239, 0.18);
+  border-radius: 22px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(22, 133, 238, 0.13), transparent 75%), linear-gradient(150deg, #182333, #101722);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 12px 28px -18px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 .elementor-element-09b8e6d .elementor-icon-box-wrapper:hover {
-  border-color: rgba(0, 164, 243, 0.45);
-  transform: translateY(-3px);
+  border-color: rgba(71, 184, 255, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px -22px rgba(0, 135, 255, 0.5);
+}
+.elementor-element-09b8e6d .elementor-icon-box-icon {
+  margin-bottom: 18px !important;
 }
 .elementor-element-09b8e6d .elementor-icon {
-  font-size: 40px !important;
-  color: var(--bn-accent) !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(76, 186, 255, 0.23);
+  border-radius: 19px;
+  background: linear-gradient(140deg, rgba(0, 194, 255, 0.15), rgba(36, 100, 255, 0.08));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+/* Ícones vetoriais decorativos, independentes da fonte de ícones do espelho. */
+.elementor-element-09b8e6d .elementor-icon i {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.elementor-element-09b8e6d .elementor-icon i::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #9aeaff, #38bdf8 55%, #6196ff);
+  -webkit-mask: var(--bn-benefit-icon) center / contain no-repeat;
+  mask: var(--bn-benefit-icon) center / contain no-repeat;
+}
+.elementor-element-09b8e6d .fa-laptop {
+  --bn-benefit-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%225%22%2F%3E%3Cpath%20d%3D%22m8.5%2012-1%209%204.5-2.5%204.5%202.5-1-9%22%2F%3E%3Cpath%20d%3D%22m10%208%201.3%201.3L14%206.7%22%2F%3E%3C%2Fsvg%3E");
+}
+.elementor-element-09b8e6d .fa-graduation-cap {
+  --bn-benefit-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22M12%207v5l3%202%22%2F%3E%3C%2Fsvg%3E");
+}
+.elementor-element-09b8e6d .fa-user-graduate {
+  --bn-benefit-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%223%22%2F%3E%3Cpath%20d%3D%22m10%208%206%204-6%204Z%22%2F%3E%3C%2Fsvg%3E");
+}
+.elementor-element-09b8e6d .fa-book {
+  --bn-benefit-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%205.5C9%203.5%205.5%203.5%202%205v15c3.5-1.5%207-1.5%2010%20.5%203-2%206.5-2%2010-.5V5c-3.5-1.5-7-1.5-10%20.5Z%22%2F%3E%3Cpath%20d%3D%22M12%205.5v15M5%208h4M5%2011h4M15%208h4M15%2011h4%22%2F%3E%3C%2Fsvg%3E");
 }
 .elementor-element-09b8e6d .elementor-icon-box-title,
 .elementor-element-09b8e6d .elementor-icon-box-title span {
+  margin: 0 !important;
   font-family: var(--bn-font) !important;
-  font-size: 18px !important;
+  font-size: 17px !important;
   font-weight: 600 !important;
-  line-height: 1.35 !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.02em;
   color: var(--bn-text) !important;
 }
 
 /* ---------- Cursos do combo ---------- */
 .bn-courses {
-  padding: 24px 16px 64px;
+  padding: 32px 16px 64px;
   background: var(--bn-bg);
   font-family: var(--bn-font);
 }
 .bn-courses__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
   max-width: 1140px;
   margin: 0 auto;
 }
 .bn-course {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   overflow: hidden;
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.6);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(114, 174, 239, 0.2);
+  border-radius: 24px;
+  background: linear-gradient(155deg, #192536, #101722);
+  box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.65);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
-.bn-course:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 60px -24px rgba(0, 110, 255, 0.45);
+.bn-course:hover,
+.bn-course:focus-within {
+  transform: translateY(-5px);
+  border-color: rgba(71, 184, 255, 0.5);
+  box-shadow: 0 28px 60px -28px rgba(0, 110, 255, 0.45);
 }
 .bn-course__media {
-  background: #f3f4f6;
+  position: relative;
+  overflow: hidden;
+  background: var(--bn-surface);
+}
+.bn-course__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 65%, rgba(19, 28, 42, 0.5));
 }
 .bn-course__media img {
   display: block;
@@ -386,38 +443,80 @@ body {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center 22%;
+  transition: transform 0.4s ease;
+}
+.bn-course:hover .bn-course__media img {
+  transform: scale(1.035);
 }
 .bn-course__body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px 16px 16px;
+  gap: 24px;
+  padding: 24px;
+  border-top: 1px solid rgba(114, 174, 239, 0.12);
 }
 .bn-course__title {
   margin: 0 !important;
-  color: #111827 !important;
+  color: var(--bn-text) !important;
   font-family: var(--bn-font) !important;
   font-size: 17px !important;
-  font-weight: 700 !important;
-  line-height: 1.35 !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+  letter-spacing: -0.02em;
 }
-.bn-course__button {
+.bn-course__button,
+.bn-modal__cta {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   width: 100%;
-  text-align: center;
+  min-height: 50px;
   margin-top: auto;
-  padding: 13px 16px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--bn-accent);
-  color: #0b1b2b;
-  font: 600 15px/1.2 var(--bn-font);
+  padding: 15px 20px;
+  border: 1px solid rgba(135, 217, 255, 0.28);
+  border-radius: 14px;
+  background: linear-gradient(115deg, #0876c9 0%, #1261db 55%, #3856d8 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.17), 0 8px 22px -10px rgba(17, 111, 239, 0.65);
+  color: #fff !important;
+  font: 600 15px/1.3 var(--bn-font);
+  text-align: center;
+  text-decoration: none !important;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+.bn-course__button::after,
+.bn-modal__cta::after {
+  content: "";
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2012h16m-6-6%206%206-6%206%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2012h16m-6-6%206%206-6%206%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+  transition: transform 0.2s ease;
 }
 .bn-course__button:hover,
-.bn-course__button:focus-visible {
-  background: #0090d6;
+.bn-modal__cta:hover {
+  background: linear-gradient(115deg, #0876c9 0%, #1261db 55%, #3856d8 100%);
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -10px rgba(17, 111, 239, 0.75);
+}
+.bn-course__button:hover::after,
+.bn-modal__cta:hover::after {
+  transform: translateX(3px);
+}
+.bn-course__button:focus-visible,
+.bn-modal__cta:focus-visible {
+  outline: 3px solid #8ddfff;
+  outline-offset: 4px;
+}
+.bn-course__button:active,
+.bn-modal__cta:active {
+  transform: translateY(0);
 }
 
 /* Pop-up do curso */
@@ -518,21 +617,6 @@ body {
   width: 16px;
   height: 16px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.5l3.5 3.5 7.5-8' fill='none' stroke='%231d4fa3' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-.bn-modal__cta {
-  display: block;
-  padding: 14px 16px;
-  border-radius: 8px;
-  background: #1a9fd8;
-  color: #fff !important;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none !important;
-  transition: background 0.2s ease;
-}
-.bn-modal__cta:hover {
-  background: #1288bb;
 }
 @keyframes bn-fade {
   from { opacity: 0; }
@@ -938,5 +1022,19 @@ body {
   .bn-courses__grid {
     grid-template-columns: minmax(0, 1fr);
     max-width: 420px;
+  }
+}
+
+/* Respeita a preferência de movimento do visitante nesta seção. */
+@media (prefers-reduced-motion: reduce) {
+  .elementor-element-09b8e6d .elementor-icon-box-wrapper,
+  .bn-course,
+  .bn-course__media img,
+  .bn-course__button,
+  .bn-course__button::after,
+  .bn-modal__cta,
+  .bn-modal__cta::after {
+    transition: none !important;
+    transform: none !important;
   }
 }
