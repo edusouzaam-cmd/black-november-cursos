@@ -43,15 +43,15 @@ body {
   padding-top: 24px !important;
   padding-bottom: 72px !important;
 }
-/* mesmo brilho azul do CTA final, centralizado atrás do depoimento */
+/* mesmo brilho azul do CTA final, centralizado na seção */
 .elementor-103645 .elementor-element.elementor-element-39a5efc {
-  background-image: radial-gradient(35% 70% at 72% 50%, rgba(0, 110, 255, 0.22) 0%, rgba(0, 110, 255, 0) 70%) !important;
+  background-image: radial-gradient(45% 70% at 50% 50%, rgba(0, 110, 255, 0.22) 0%, rgba(0, 110, 255, 0) 70%) !important;
   border-top: 1px solid var(--bn-border);
   border-bottom: 1px solid var(--bn-border);
 }
 @media (max-width: 1024px) {
   .elementor-103645 .elementor-element.elementor-element-39a5efc {
-    background-image: radial-gradient(80% 35% at 50% 78%, rgba(0, 110, 255, 0.22) 0%, rgba(0, 110, 255, 0) 70%) !important;
+    background-image: radial-gradient(80% 45% at 50% 50%, rgba(0, 110, 255, 0.22) 0%, rgba(0, 110, 255, 0) 70%) !important;
   }
 }
 
