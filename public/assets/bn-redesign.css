@@ -110,12 +110,12 @@ body {
   text-align: center;
 }
 
-/* arte: mockups grandes com o selo Black November sobreposto na base */
+/* arte: selo Black November acima dos mockups dos cursos */
 .bn-hero-art {
-  position: relative;
   display: flex;
-  justify-content: center;
-  padding-bottom: 9%;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 .elementor-103645 .bn-hero-art img {
   display: block;
@@ -128,13 +128,8 @@ body {
   max-width: 720px !important;
 }
 .elementor-103645 .bn-hero-art .bn-hero-art__logo {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  z-index: 1;
-  width: 32% !important;
-  max-width: 240px !important;
-  transform: translateX(-50%);
+  width: 36% !important;
+  max-width: 260px !important;
   filter: drop-shadow(0 12px 30px rgba(0, 120, 255, 0.45));
 }
 
@@ -192,8 +187,8 @@ body {
   text-align: center !important;
 }
 .elementor-103645 .elementor-element.elementor-element-dd1525c {
-  width: 100%;
-  max-width: 460px;
+  width: 100% !important;
+  max-width: 460px !important;
 }
 .bn-hero-price {
   display: flex;
