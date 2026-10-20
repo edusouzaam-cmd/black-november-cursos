@@ -107,14 +107,22 @@ body {
 .elementor-103645 .bn-hero-art .bn-hero-art__logo {
   position: relative;
   z-index: 1;
-  width: 64% !important;
-  max-width: 380px !important;
-  margin-bottom: -2%;
+  width: 48% !important;
+  max-width: 300px !important;
+  margin-bottom: 28px;
   filter: drop-shadow(0 10px 30px rgba(0, 120, 255, 0.35));
 }
 .elementor-103645 .bn-hero-art .bn-hero-art__mockups {
   width: 100% !important;
-  max-width: 580px !important;
+  max-width: 680px !important;
+}
+/* desktop: afasta a arte do texto e do botão */
+@media (min-width: 1025px) {
+  .elementor-element-c54551e .bn-hero-art {
+    margin-left: 64px;
+    /* avança sobre a margem lateral livre, sem encostar na borda da tela */
+    margin-right: min(0px, calc((1140px - 100vw) / 2 + 24px));
+  }
 }
 
 .bn-eyebrow {
