@@ -5,7 +5,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Passaporte Vitalício | Black November ENGETELES" },
-      { name: "description", content: "+40 cursos com acesso vitalício pelo preço de 1!" },
+      { name: "description", content: "3 certificações completas pelo preço de uma!" },
     ],
   }),
   component: PassaportePage,
