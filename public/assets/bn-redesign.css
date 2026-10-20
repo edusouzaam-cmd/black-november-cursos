@@ -92,6 +92,31 @@ body {
   text-align: center;
 }
 
+/* arte da primeira dobra: selo Black November sobre os mockups */
+.bn-hero-art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.elementor-103645 .bn-hero-art img {
+  display: block;
+  height: auto !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.elementor-103645 .bn-hero-art .bn-hero-art__logo {
+  position: relative;
+  z-index: 1;
+  width: 64% !important;
+  max-width: 380px !important;
+  margin-bottom: -2%;
+  filter: drop-shadow(0 10px 30px rgba(0, 120, 255, 0.35));
+}
+.elementor-103645 .bn-hero-art .bn-hero-art__mockups {
+  width: 100% !important;
+  max-width: 580px !important;
+}
+
 .bn-eyebrow {
   align-self: flex-start;
   display: inline-flex;
