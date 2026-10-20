@@ -293,8 +293,9 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 268 / 166;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center 22%;
 }
 .bn-course__body {
   display: flex;
@@ -391,8 +392,9 @@ body {
 .bn-modal__image {
   display: block;
   width: 100%;
-  aspect-ratio: 268 / 166;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center 22%;
 }
 .bn-modal__body {
   padding: 20px 20px 24px;
