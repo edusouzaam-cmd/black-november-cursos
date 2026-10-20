@@ -60,14 +60,36 @@ body {
   gap: 20px !important;
 }
 .elementor-element-e60d67c { order: 0; }
-.bn-eyebrow { order: 1; }
 .elementor-element-5b76344 { order: 2; }
-.elementor-element-b1e678b > .bn-countdown { order: 3; }
 .elementor-element-81dd902 { order: 4; }
 .elementor-element-dd1525c { order: 5; }
 .elementor-element-19ec1e6,
 .elementor-element-6a5aaed {
   display: none !important;
+}
+
+/* selo + contagem regressiva centralizados no topo da primeira dobra */
+.elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner {
+  flex-wrap: wrap !important;
+}
+.bn-hero-top {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.bn-hero-top .bn-eyebrow {
+  align-self: center;
+}
+.bn-hero-top .bn-countdown {
+  max-width: 560px;
+}
+.bn-hero-top .bn-countdown__title {
+  text-align: center;
 }
 
 .bn-eyebrow {
@@ -768,14 +790,8 @@ body {
   .elementor-103645 .elementor-element.elementor-element-c54551e {
     display: none !important;
   }
-  .bn-eyebrow {
-    align-self: center;
-  }
   .bn-hero-price {
     align-items: center;
-    text-align: center;
-  }
-  .elementor-element-b1e678b > .bn-countdown .bn-countdown__title {
     text-align: center;
   }
 }
