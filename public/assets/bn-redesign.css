@@ -260,115 +260,195 @@ body {
   color: var(--bn-text) !important;
 }
 
-/* ---------- Carrossel de cursos ---------- */
-.elementor-103645 .elementor-element.elementor-element-b336baf {
-  padding-top: 56px !important;
-  padding-bottom: 56px !important;
+/* ---------- Cursos do combo ---------- */
+.bn-courses {
+  padding: 24px 16px 64px;
+  background: var(--bn-bg);
+  font-family: var(--bn-font);
 }
-.elementor-element-e50ab6a .swiper-slide {
-  height: auto !important;
+.bn-courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
 }
-.elementor-element-e50ab6a .elementor-testimonial,
-.elementor-element-e50ab6a .elementor-testimonial__content,
-.elementor-element-e50ab6a .elementor-testimonial__text,
-.elementor-element-e50ab6a .elementor-testimonial__text > .elementor,
-.elementor-element-e50ab6a .elementor-section,
-.elementor-element-e50ab6a .elementor-container,
-.elementor-element-e50ab6a .elementor-column {
-  height: 100%;
-}
-.elementor-element-e50ab6a .elementor-testimonial__text {
-  font-style: normal !important;
-}
-.elementor-element-e50ab6a .elementor-column > .elementor-widget-wrap {
-  display: flex !important;
+.bn-course {
+  display: flex;
   flex-direction: column;
-  align-content: flex-start;
-  height: 100%;
-  padding: 0 0 20px !important;
   overflow: hidden;
-  border: 1px solid var(--bn-border) !important;
-  border-radius: var(--bn-radius) !important;
-  background: var(--bn-surface) !important;
-  box-shadow: none !important;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.elementor-element-e50ab6a .elementor-widget-image {
-  margin-bottom: 16px !important;
+.bn-course:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px -24px rgba(0, 110, 255, 0.45);
 }
-.elementor-element-e50ab6a .elementor-widget-image img {
+.bn-course__media {
+  background: #f3f4f6;
+}
+.bn-course__media img {
   display: block;
-  width: 100% !important;
-  aspect-ratio: 16 / 10;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 268 / 166;
   object-fit: cover;
-  border-radius: 0 !important;
 }
-.elementor-element-e50ab6a .elementor-widget-heading,
-.elementor-element-e50ab6a .elementor-widget-icon-list {
-  padding: 0 20px !important;
+.bn-course__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 16px 16px;
+}
+.bn-course__title {
   margin: 0 !important;
-}
-.elementor-element-e50ab6a .elementor-heading-title {
-  margin-bottom: 12px !important;
+  color: #111827 !important;
   font-family: var(--bn-font) !important;
   font-size: 17px !important;
-  font-style: normal !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   line-height: 1.35 !important;
-  text-align: left !important;
-  color: var(--bn-text) !important;
 }
-.elementor-element-e50ab6a .elementor-icon-list-item {
-  padding: 5px 0 !important;
-}
-.elementor-element-e50ab6a .elementor-icon-list-icon {
-  display: none !important;
-}
-.elementor-element-e50ab6a .elementor-icon-list-text {
-  position: relative;
-  padding-left: 26px !important;
-  font-family: var(--bn-font) !important;
-  font-size: 14px !important;
-  font-style: normal !important;
-  color: var(--bn-muted) !important;
-}
-.elementor-element-e50ab6a .elementor-icon-list-text::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  border-radius: 50%;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-4.9' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat,
-    var(--bn-accent);
-}
-.elementor-element-e50ab6a .elementor-widget-button {
-  margin-top: auto !important;
-  padding: 16px 20px 0 !important;
-}
-.elementor-element-e50ab6a .elementor-button {
+.bn-course__button {
   width: 100%;
-  padding: 14px 16px !important;
-  border: 1px solid rgba(0, 164, 243, 0.5) !important;
-  border-radius: 10px !important;
-  background: rgba(0, 164, 243, 0.12) !important;
-  box-shadow: none !important;
-  color: #fff !important;
+  text-align: center;
+  margin-top: auto;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--bn-accent);
+  color: #0b1b2b;
+  font: 600 15px/1.2 var(--bn-font);
+  cursor: pointer;
   transition: background 0.2s ease;
 }
-.elementor-element-e50ab6a .elementor-button:hover {
-  background: var(--bn-gradient) !important;
+.bn-course__button:hover,
+.bn-course__button:focus-visible {
+  background: #0090d6;
 }
-.elementor-element-e50ab6a .elementor-button-text {
+
+/* Pop-up do curso */
+.bn-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-family: var(--bn-font);
+}
+.bn-modal[hidden] {
+  display: none;
+}
+.bn-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 6, 12, 0.75);
+  backdrop-filter: blur(4px);
+  animation: bn-fade 0.2s ease;
+}
+.bn-modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  border: 1px solid #d6dbe4;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  animation: bn-pop 0.25s ease;
+}
+.bn-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  box-shadow: none !important;
+  outline-offset: 2px;
+  width: 36px;
+  height: 36px;
+  border: 0 !important;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  font-size: 24px;
+  line-height: 36px;
+  cursor: pointer;
+}
+.bn-modal__close:focus {
+  outline: none !important;
+}
+.bn-modal__close:focus-visible {
+  outline: 2px solid var(--bn-accent) !important;
+}
+.bn-modal__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 268 / 166;
+  object-fit: cover;
+}
+.bn-modal__body {
+  padding: 20px 20px 24px;
+}
+.bn-modal__title {
+  margin: 0 0 20px !important;
+  color: #1d4fa3 !important;
   font-family: var(--bn-font) !important;
-  font-size: 15px !important;
-  font-style: normal !important;
-  font-weight: 600 !important;
-  color: #fff !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
 }
-.elementor-element-e50ab6a .swiper-pagination,
+.bn-modal__list {
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.bn-modal__list li {
+  position: relative;
+  margin: 0 0 8px;
+  padding-left: 28px;
+  color: #374151;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.bn-modal__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.5l3.5 3.5 7.5-8' fill='none' stroke='%231d4fa3' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.bn-modal__cta {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #1a9fd8;
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none !important;
+  transition: background 0.2s ease;
+}
+.bn-modal__cta:hover {
+  background: #1288bb;
+}
+@keyframes bn-fade {
+  from { opacity: 0; }
+}
+@keyframes bn-pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+}
+
 .elementor-element-cd572b4 .swiper-pagination,
 .elementor-element-2dd3667 .swiper-pagination {
   position: static !important;
@@ -726,9 +806,6 @@ body {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
-  .elementor-103645 .elementor-element.elementor-element-b336baf {
-    padding-bottom: 24px !important;
-  }
   .elementor-103645 .elementor-element.elementor-element-822c013,
   .elementor-103645 .elementor-element.elementor-element-b1e678b {
     padding-bottom: 16px !important;
@@ -768,5 +845,12 @@ body {
   }
   .elementor-103645 .elementor-element-cd572b4 .elementor-top-column > .elementor-widget-wrap {
     padding: 20px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .bn-courses__grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
   }
 }

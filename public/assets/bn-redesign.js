@@ -65,3 +65,51 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+/*
+ * Pop-up "Saiba mais" dos cursos: cada card traz um <template id="bn-course-<id>">
+ * com os detalhes, copiados para o modal ao clicar.
+ */
+(function () {
+  function init() {
+    var modal = document.getElementById("bn-course-modal");
+    if (!modal) return;
+    var image = modal.querySelector(".bn-modal__image");
+    var title = modal.querySelector(".bn-modal__title");
+    var content = modal.querySelector(".bn-modal__content");
+    var opener = null;
+
+    function open(button) {
+      var card = button.closest(".bn-course");
+      var source = card.querySelector(".bn-course__media img");
+      var template = document.getElementById("bn-course-" + button.getAttribute("data-course"));
+      image.src = source.src;
+      image.alt = source.alt;
+      title.textContent = card.querySelector(".bn-course__title").textContent;
+      content.innerHTML = "";
+      content.appendChild(template.content.cloneNode(true));
+      opener = button;
+      modal.hidden = false;
+      document.documentElement.style.overflow = "hidden";
+      modal.querySelector(".bn-modal__close").focus();
+    }
+
+    function close() {
+      modal.hidden = true;
+      document.documentElement.style.overflow = "";
+      if (opener) opener.focus();
+    }
+
+    document.addEventListener("click", function (e) {
+      var button = e.target.closest(".bn-course__button");
+      if (button) return open(button);
+      if (!modal.hidden && e.target.closest("[data-close]")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) close();
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
