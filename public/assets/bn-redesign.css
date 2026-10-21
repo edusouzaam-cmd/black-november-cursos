@@ -816,27 +816,6 @@ body {
 .bn-logo-marquee__item:hover img {
   filter: none;
 }
-.bn-logo-marquee__toggle {
-  flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
-  margin: 4px 0 4px auto;
-  accent-color: var(--bn-accent);
-  cursor: pointer;
-}
-.bn-logo-marquee__toggle:focus-visible {
-  outline: 2px solid #8ddfff;
-  outline-offset: 3px;
-}
-.bn-logo-marquee__label {
-  margin-right: 2px;
-  color: var(--bn-muted);
-  font: 400 12px/1.5 var(--bn-font);
-  cursor: pointer;
-}
-.bn-logo-marquee__toggle:checked ~ .bn-logo-marquee__viewport .bn-logo-marquee__track {
-  animation-play-state: paused;
-}
 @keyframes bn-logo-conveyor {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
