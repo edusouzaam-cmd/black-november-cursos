@@ -113,3 +113,66 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+/*
+ * O Swiper do Elementor inicia quando a seção entra em vista. Ativa autoHeight
+ * após essa inicialização e mede novamente ao trocar de slide, carregar fotos,
+ * fontes ou alterar a largura. Cada comentário mantém sua altura natural.
+ */
+(function () {
+  function init() {
+    var root = document.querySelector(".elementor-element-cd572b4");
+    var viewport = root && root.querySelector(".elementor-main-swiper");
+    if (!viewport) return;
+    var bound = null;
+    var frame = 0;
+    var sizes = null;
+    var options = { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] };
+
+    function update() {
+      frame = 0;
+      if (bound && !bound.destroyed) bound.updateAutoHeight();
+    }
+
+    function schedule() {
+      if (!frame) frame = requestAnimationFrame(update);
+    }
+
+    function bind() {
+      var swiper = viewport.swiper;
+      if (!swiper || swiper.destroyed || bound === swiper) return;
+      bound = swiper;
+      observer.disconnect();
+      swiper.params.autoHeight = true;
+      swiper.originalParams.autoHeight = true;
+      viewport.classList.add("swiper-autoheight");
+      ["slideChange", "slideChangeTransitionStart", "transitionEnd", "resize", "observerUpdate"].forEach(function (event) {
+        swiper.on(event, schedule);
+      });
+      root.addEventListener("load", schedule, true);
+      if (window.ResizeObserver) {
+        sizes = new ResizeObserver(schedule);
+        root.querySelectorAll(".elementor-testimonial").forEach(function (card) {
+          sizes.observe(card);
+        });
+      }
+      if (document.fonts) document.fonts.ready.then(schedule);
+      swiper.on("destroy", function () {
+        if (sizes) sizes.disconnect();
+        root.removeEventListener("load", schedule, true);
+        if (frame) cancelAnimationFrame(frame);
+        frame = 0;
+        bound = null;
+        observer.observe(viewport, options);
+      });
+      schedule();
+    }
+
+    var observer = new MutationObserver(bind);
+    observer.observe(viewport, options);
+    bind();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
