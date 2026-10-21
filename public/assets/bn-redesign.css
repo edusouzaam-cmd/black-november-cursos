@@ -767,8 +767,15 @@ body {
 .bn-logo-marquee__viewport {
   order: -1;
   flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   overflow: hidden;
+  overflow: clip;
+  scrollbar-width: none;
+}
+.bn-logo-marquee__viewport::-webkit-scrollbar {
+  display: none;
 }
 .bn-logo-marquee__track {
   display: flex;
@@ -827,8 +834,7 @@ body {
   font: 400 12px/1.5 var(--bn-font);
   cursor: pointer;
 }
-.bn-logo-marquee__toggle:checked ~ .bn-logo-marquee__viewport .bn-logo-marquee__track,
-.bn-logo-marquee:hover .bn-logo-marquee__track {
+.bn-logo-marquee__toggle:checked ~ .bn-logo-marquee__viewport .bn-logo-marquee__track {
   animation-play-state: paused;
 }
 @keyframes bn-logo-conveyor {
@@ -840,18 +846,11 @@ body {
     --bn-logo-width: 144px;
   }
 }
+/* Mantém a esteira automática solicitada, com velocidade ainda menor
+   quando o visitante prefere movimento reduzido. Sem rolagem manual. */
 @media (prefers-reduced-motion: reduce) {
   .bn-logo-marquee__track {
-    animation: none;
-    transform: none;
-  }
-  .bn-logo-marquee__viewport {
-    overflow-x: auto;
-  }
-  .bn-logo-marquee__group[aria-hidden="true"],
-  .bn-logo-marquee__toggle,
-  .bn-logo-marquee__label {
-    display: none;
+    animation-duration: 120s;
   }
   .bn-logo-marquee__item img {
     transition: none;
