@@ -1377,54 +1377,80 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
   .elementor-103645 .elementor-animation-pulse-shrink { animation: none !important; transition: none !important; transform: none !important; }
 }
 
-/* Métricas e depoimentos ocupam toda a largura disponível da seção. */
-.elementor-103645 .elementor-element.elementor-element-ba04ecf,
-.elementor-103645 .elementor-element.elementor-element-635df5d {
-  width: 100% !important;
-  max-width: 100%;
-}
-.elementor-103645 .elementor-element.elementor-element-635df5d {
-  padding-block: 0 !important;
-  gap: 24px !important;
-}
-@media (max-width: 640px) {
-  .elementor-103645 .elementor-element.elementor-element-635df5d { flex-direction: column !important; }
-  .elementor-103645 .elementor-element.elementor-element-8ab046b,
-  .elementor-103645 .elementor-element.elementor-element-a30ef72 { width: 100% !important; padding: 0 !important; }
-  .elementor-103645 .elementor-element-cd572b4 .elementor-inner-column { width: 100% !important; }
-  .elementor-103645 .elementor-element-cd572b4 .elementor-inner-column > .elementor-widget-wrap { padding-inline: 0 !important; }
-}
-
+/* ---------- Indicadores e depoimentos: layout independente das colunas antigas ---------- */
 .elementor-103645 .elementor-element.elementor-element-635df5d {
   display: grid !important;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: start;
-}
-.elementor-103645 .elementor-element.elementor-element-8ab046b {
-  width: 100% !important;
-  padding-inline: 0 !important;
-}
-.elementor-103645 .elementor-element.elementor-element-d997adb,
-.elementor-103645 .elementor-element.elementor-element-a30ef72 > .e-con-inner {
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 12px !important;
-}
-.elementor-103645 .elementor-element.elementor-element-1db43e4,
-.elementor-103645 .elementor-element.elementor-element-f7ca9a5 {
   width: 100% !important;
   max-width: 100% !important;
+  min-width: 0;
+  padding: 0 !important;
+  gap: 32px !important;
 }
-.elementor-103645 .elementor-element.elementor-element-1db43e4,
-.elementor-103645 .elementor-element.elementor-element-137e5e8 {
-  font-size: clamp(36px, 5vw, 52px) !important;
-  line-height: 1.2;
+.elementor-103645 .elementor-element.elementor-element-ba04ecf {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0;
+  padding: 0 !important;
 }
-.elementor-103645 .elementor-element.elementor-element-487c2d1,
-.elementor-103645 .elementor-element.elementor-element-d53e006 {
-  font-size: clamp(16px, 2vw, 18px) !important;
-  line-height: 1.7;
+.bn-proof-metrics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  align-content: start;
+  font-family: var(--bn-font);
 }
+.bn-proof-metric {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--bn-border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(19, 31, 49, 0.9), rgba(14, 20, 31, 0.75));
+}
+.elementor-103645 .bn-proof-metric__label {
+  display: block;
+  width: 100%;
+  margin: 0 0 14px !important;
+  color: var(--bn-muted) !important;
+  font: 600 12px/1.6 var(--bn-font) !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.elementor-103645 .bn-proof-metric__value {
+  display: block;
+  width: 100%;
+  margin: 0 0 16px !important;
+  color: #00d5ff !important;
+  font: 700 clamp(36px, 4.5vw, 52px)/1.15 var(--bn-font) !important;
+  letter-spacing: -0.025em;
+  text-shadow: 0 0 24px rgba(0, 194, 255, 0.3);
+}
+.elementor-103645 .bn-proof-metric__description {
+  display: block;
+  width: 100%;
+  max-width: 48ch;
+  margin: 0 !important;
+  color: #cfd6e2 !important;
+  font: 400 clamp(16px, 1.5vw, 18px)/1.75 var(--bn-font) !important;
+  word-break: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.bn-proof-metric__description strong { color: var(--bn-text); font-weight: 600; }
 @media (max-width: 1024px) {
-  .elementor-103645 .elementor-element.elementor-element-635df5d { grid-template-columns: minmax(0, 1fr); }
+  .elementor-103645 .elementor-element.elementor-element-635df5d {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px !important;
+  }
+  .bn-proof-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .bn-proof-metrics { grid-template-columns: minmax(0, 1fr); }
+  .elementor-103645 .elementor-element-cd572b4 .elementor-inner-column { width: 100% !important; }
+  .elementor-103645 .elementor-element-cd572b4 .elementor-inner-column > .elementor-widget-wrap { padding-inline: 0 !important; }
 }
