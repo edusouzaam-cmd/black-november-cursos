@@ -1573,3 +1573,29 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
   .elementor-103645 .elementor-element-cd572b4 .elementor-inner-column > .elementor-widget-wrap { gap: 4px; }
   .elementor-103645 .elementor-element-cd572b4 .elementor-inner-column .elementor-widget { margin-bottom: 0 !important; }
 }
+
+/* Informações dos cursos sempre visíveis dentro dos cards. */
+.bn-course__details {
+  margin: auto 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.bn-course__details li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 !important;
+  padding: 10px 0;
+  color: var(--bn-text);
+  font: 400 15px/1.5 var(--bn-font);
+  overflow-wrap: anywhere;
+}
+.bn-course__details li + li {
+  border-top: 1px solid rgba(114, 174, 239, 0.12);
+}
+.bn-course__details li::before {
+  content: "✓";
+  flex: 0 0 auto;
+  color: #38bdf8;
+  font-weight: 700;
+}
