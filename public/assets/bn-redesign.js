@@ -128,3 +128,25 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+/* Conteúdo programático do PCM: diálogo nativo com foco e Escape. */
+(function () {
+ function init() {
+  var opener = document.querySelector("[data-pcm-curriculum]");
+  var dialog = document.getElementById("bn-pcm-curriculum");
+  if (!opener || !dialog || typeof dialog.showModal !== "function") return;
+  var previousOverflow;
+  opener.addEventListener("click", function(event) {
+   event.preventDefault(); previousOverflow = document.documentElement.style.overflow;
+   dialog.showModal(); dialog.scrollTop = 0; document.documentElement.style.overflow = "hidden";
+  });
+  dialog.querySelector("[data-pcm-close]").addEventListener("click", function() { dialog.close(); });
+  dialog.addEventListener("click", function(event) {
+   if (event.target !== dialog) return;
+   var rect = dialog.getBoundingClientRect();
+   if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog.addEventListener("close", function() { document.documentElement.style.overflow = previousOverflow || ""; opener.focus(); });
+ }
+ if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();

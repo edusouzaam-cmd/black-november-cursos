@@ -1599,3 +1599,33 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
   color: #38bdf8;
   font-weight: 700;
 }
+
+/* Janela do conteúdo programático do PCM. */
+.bn-curriculum { box-sizing:border-box; width:min(920px,calc(100% - 32px)); max-width:none; max-height:calc(100dvh - 32px); margin:auto; padding:0; border:0; border-radius:24px; background:#f5f6f8; color:#091e3e; font-family:var(--bn-font); overflow:auto; box-shadow:0 30px 100px #0007; }
+.bn-curriculum::backdrop { background:#040c19c7; backdrop-filter:blur(5px); }
+.bn-curriculum__toolbar { position:sticky; top:0; z-index:1; display:flex; align-items:center; justify-content:space-between; padding:12px 24px; background:#f5f6f8; border-bottom:1px solid #e3e8ef; font-size:11px; letter-spacing:.12em; font-weight:700; }
+.bn-curriculum__toolbar button { display:grid; place-items:center; width:38px; height:38px; padding:0; border:1px solid #dce3ec; border-radius:50%; background:#fff; color:#091e3e; font:26px/1 var(--bn-font); cursor:pointer; }
+.bn-curriculum__content { padding:clamp(20px,4vw,40px); }
+.bn-curriculum__eyebrow { display:inline-block; padding:5px 10px; border:1px solid #a8e5fa; border-radius:99px; background:#e7f8ff; color:#0065b4; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; }
+.bn-curriculum h2 { margin:18px 0 14px; color:#091e3e; font:600 clamp(24px,4vw,36px)/1.15 var(--bn-font); letter-spacing:-.035em; }
+.bn-curriculum h2 span { color:#0069bc; }
+.bn-curriculum__intro { max-width:620px; margin:0 0 32px; color:#57677e; font-size:14px; line-height:1.65; }
+.bn-curriculum__modules { display:grid; gap:10px; }
+.bn-curriculum__module { border:1px solid #e5e9ef; border-radius:18px; background:#fff; overflow:hidden; }
+.bn-curriculum__module summary { display:flex; align-items:center; gap:14px; padding:18px; cursor:pointer; list-style:none; }
+.bn-curriculum__module summary::-webkit-details-marker { display:none; }
+.bn-curriculum__module summary::after { content:"⌄"; margin-left:auto; color:#8190a3; }
+.bn-curriculum__module[open] summary::after { transform:rotate(180deg); }
+.bn-curriculum__number { display:grid; place-items:center; flex:0 0 38px; height:38px; border-radius:14px; background:#091e3e; color:#18cbf2; font-size:12px; font-weight:700; }
+.bn-curriculum__module small { display:block; color:#0069bc; font-size:10px; text-transform:uppercase; letter-spacing:.1em; }
+.bn-curriculum__module strong { display:block; margin-top:4px; font-size:15px; font-weight:600; line-height:1.4; }
+.bn-curriculum__lessons { padding:0 22px 22px 70px; }
+.bn-curriculum__lessons p { color:#57677e; font-size:14px; line-height:1.6; margin:0 0 16px; }
+.bn-curriculum__lessons ol { margin:0; padding-left:24px; }
+.bn-curriculum__lessons li { padding:8px 0 8px 6px; color:#213956; font-size:14px; line-height:1.5; border-top:1px solid #edf0f4; }
+.bn-curriculum__lessons li::marker { color:#0069bc; font-weight:600; }
+.bn-curriculum__total { margin-top:28px; padding:26px; border-radius:20px; background:#091e3e; color:#fff; }
+.bn-curriculum__total small { display:block; color:#19d0f6; font-size:10px; text-transform:uppercase; letter-spacing:.1em; }
+.bn-curriculum__total strong { display:block; margin-top:8px; font-size:clamp(16px,3vw,21px); }
+.bn-curriculum :focus-visible { outline:3px solid #00a4f3; outline-offset:3px; }
+@media(max-width:600px) { .bn-curriculum { width:calc(100% - 16px); max-height:calc(100dvh - 16px); border-radius:18px; } .bn-curriculum__module summary { padding:14px; gap:10px; } .bn-curriculum__lessons { padding:0 18px 18px; } }
