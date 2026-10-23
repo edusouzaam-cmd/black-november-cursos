@@ -1636,3 +1636,16 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 .bn-curriculum--gfm .bn-curriculum__module[open] li { color:#fff; }
 .bn-curriculum--gfm .bn-curriculum__module[open] small { color:#00c5ed; }
 @media(max-width:600px) { .bn-curriculum__themes { grid-template-columns:minmax(0,1fr); } }
+
+/* Imagem dos benefícios na chamada final do combo. */
+.bn-final__combo-image {
+  display: block;
+  width: min(100%, 480px);
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto 0;
+  object-fit: contain;
+}
+@media (max-width: 600px) {
+  .bn-final__combo-image { width: min(100%, 340px); margin-top: 24px; }
+}
