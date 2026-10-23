@@ -1629,3 +1629,18 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 .bn-curriculum__total strong { display:block; margin-top:8px; font-size:clamp(16px,3vw,21px); }
 .bn-curriculum :focus-visible { outline:3px solid #00a4f3; outline-offset:3px; }
 @media(max-width:600px) { .bn-curriculum { width:calc(100% - 16px); max-height:calc(100dvh - 16px); border-radius:18px; } .bn-curriculum__module summary { padding:14px; gap:10px; } .bn-curriculum__lessons { padding:0 18px 18px; } }
+
+/* Temas dos programas de GFM e RCM. */
+.bn-curriculum__description { display:block; margin-top:4px; color:#57677e; font-size:12px; line-height:1.5; }
+.bn-curriculum__lessons > small { color:#0069bc; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; }
+.bn-curriculum__themes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 22px; margin:14px 0 0; padding:0; list-style:none; }
+.bn-curriculum__themes li { display:flex; gap:8px; padding:4px 0; border:0; font-size:13px; }
+.bn-curriculum__themes li::before { content:"✓"; color:#00a4f3; flex-shrink:0; }
+.bn-curriculum__extra { margin-top:20px; padding:20px; border:1px dashed #55c5ef; border-radius:16px; background:#edfaff; font-size:14px; }
+.bn-curriculum__extra p { margin:8px 0 0; color:#57677e; font-size:12px; line-height:1.6; }
+.bn-curriculum--gfm .bn-curriculum__module[open] { background:#061c31; border-color:#061c31; }
+.bn-curriculum--gfm .bn-curriculum__module[open] strong,
+.bn-curriculum--gfm .bn-curriculum__module[open] .bn-curriculum__description,
+.bn-curriculum--gfm .bn-curriculum__module[open] li { color:#fff; }
+.bn-curriculum--gfm .bn-curriculum__module[open] small { color:#00c5ed; }
+@media(max-width:600px) { .bn-curriculum__themes { grid-template-columns:minmax(0,1fr); } }
