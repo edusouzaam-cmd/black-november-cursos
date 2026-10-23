@@ -1282,19 +1282,19 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
   border-top: 1px solid var(--bn-border);
   background: #05070b;
   color: var(--bn-muted);
-  font: 400 7px/1.8 var(--bn-font);
+  font: 400 8.4px/1.8 var(--bn-font);
 }
 .bn-footer__inner { max-width: 1140px; margin-inline: auto; }
 .bn-footer__grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); gap: 40px; }
 .bn-footer__logo { display: block; width: 210px; max-width: 100%; height: auto; margin-bottom: 20px; }
 .bn-footer address { font-style: normal; overflow-wrap: anywhere; }
 .bn-footer strong { color: var(--bn-text); font-weight: 600; }
-.bn-footer h2 { margin: 0 0 12px !important; color: var(--bn-text) !important; font: 600 8px/1.5 var(--bn-font); }
+.bn-footer h2 { margin: 0 0 12px !important; color: var(--bn-text) !important; font: 600 9.6px/1.5 var(--bn-font); }
 .bn-footer nav { display: flex; flex-direction: column; align-items: flex-start; }
 .bn-footer a { display: inline-flex; align-items: center; min-height: 44px; color: #bdc8d7; text-decoration: none; overflow-wrap: anywhere; }
 .bn-footer a:hover { color: #8ddfff; text-decoration: underline; text-underline-offset: 4px; }
 .bn-footer__bottom { margin-top: 32px; padding-top: 20px; padding-right: 64px; border-top: 1px solid var(--bn-border); }
-.bn-footer__bottom p { margin: 0 !important; font-size: 6px; }
+.bn-footer__bottom p { margin: 0 !important; font-size: 7.2px; }
 
 @media (max-width: 1024px) {
   .elementor-103645 .elementor-element.elementor-element-822c013 { padding-block: 40px !important; }
@@ -1651,4 +1651,4 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 }
 
 /* Mantém os links do rodapé na mesma escala reduzida do texto. */
-.bn-footer a { font-size: 7px !important; }
+.bn-footer a { font-size: 8.4px !important; }
