@@ -162,14 +162,6 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.bn-eyebrow::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--bn-accent);
-  box-shadow: 0 0 0 4px rgba(0, 164, 243, 0.25);
-}
 
 .elementor-103645 .elementor-element.elementor-element-5b76344,
 .elementor-103645 .elementor-element.elementor-element-5b76344 p {
