@@ -1675,7 +1675,7 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 
 /* Primeira dobra: headline em duas linhas e CTA sempre legível. */
 .elementor-103645 .elementor-element.elementor-element-b1e678b { max-width:1200px !important; }
-.elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(28px,3vw,40px) !important; line-height:1.18 !important; }
+.elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(28px,2.5vw,36px) !important; line-height:1.18 !important; }
 .bn-headline-line { display:block; }
 .elementor-103645 .elementor-element.elementor-element-dd1525c { max-width:620px !important; }
 .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { border-radius:999px !important; background:linear-gradient(110deg,#00c6ff,#0066ff,#214cde,#00baff) !important; background-size:300% 100% !important; animation:bn-cta-gradient 5s ease-in-out infinite !important; padding:20px 28px !important; }
