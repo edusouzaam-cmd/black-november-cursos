@@ -1,8 +1,4 @@
-/*
- * Contagens regressivas da Black November.
- * <div class="bn-countdown" data-start="..." data-end="..."> conta até o início
- * e, depois que a campanha começa, até o fim dela.
- */
+/* Contagem regressiva até o encerramento da oferta. */
 (function () {
   var UNITS = ["days", "hours", "minutes", "seconds"];
   var LABELS = { days: "Dias", hours: "Horas", minutes: "Minutos", seconds: "Segundos" };
@@ -12,7 +8,6 @@
   }
 
   function setup(el) {
-    var start = new Date(el.getAttribute("data-start")).getTime();
     var end = new Date(el.getAttribute("data-end")).getTime();
     var title = document.createElement("p");
     var items = document.createElement("div");
@@ -34,20 +29,16 @@
     var phase;
     function tick() {
       var now = Date.now();
-      var next = now < start ? "before" : now < end ? "during" : "after";
+      var next = now < end ? "during" : "after";
       if (next !== phase) {
         phase = next;
         title.innerHTML =
-          phase === "before"
-            ? "A <strong>Black November</strong> começa em:"
-            : phase === "during"
-              ? "A <strong>Black November</strong> termina em:"
-              : "A <strong>Black November</strong> foi encerrada";
+          phase === "during" ? "A oferta finaliza em:" : "Oferta encerrada";
         items.style.display = phase === "after" ? "none" : "";
       }
       if (phase === "after") return clearInterval(timer);
 
-      var s = Math.max(0, Math.floor(((phase === "before" ? start : end) - now) / 1000));
+      var s = Math.max(0, Math.floor((end - now) / 1000));
       digits.days.textContent = pad(Math.floor(s / 86400));
       digits.hours.textContent = pad(Math.floor((s % 86400) / 3600));
       digits.minutes.textContent = pad(Math.floor((s % 3600) / 60));
