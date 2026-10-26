@@ -1702,3 +1702,60 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
  .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button-text { font-size:clamp(10px,2.9vw,13px) !important; }
 }
 @media(prefers-reduced-motion:reduce) { .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { animation:none !important; } }
+
+/* Escala a composição à altura disponível, sem cortar a chamada principal. */
+.elementor-103645 .elementor-element.elementor-element-822c013 { min-height:0 !important; height:auto !important; padding:20px 24px 28px !important; }
+.elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner { gap:12px !important; }
+.elementor-103645 .elementor-element.elementor-element-b1e678b { gap:14px !important; }
+.elementor-103645 .elementor-element.elementor-element-e60d67c { margin:0 !important; }
+.bn-hero-top { margin:0 !important; }
+.bn-hero-art { gap:10px; }
+.elementor-103645 .bn-hero-art .bn-hero-art__logo { width:auto !important; height:clamp(54px,12svh,110px) !important; max-width:180px !important; object-fit:contain; }
+.elementor-103645 .bn-hero-art .bn-hero-art__mockups { width:auto !important; height:clamp(160px,36svh,340px) !important; max-width:100% !important; object-fit:contain; }
+.elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(22px,2vw,30px) !important; line-height:1.2 !important; }
+.bn-hero-sub { font-size:15px !important; line-height:1.5 !important; max-width:660px; }
+.elementor-103645 .elementor-element.elementor-element-81dd902 { display:none !important; }
+.elementor-103645 .elementor-element.elementor-element-dd1525c { max-width:560px !important; }
+.elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { padding:16px 24px !important; min-height:54px; }
+.elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button-text { font-size:14px !important; line-height:1.25 !important; }
+.bn-hero-top .bn-countdown { max-width:360px; }
+.bn-hero-top .bn-countdown__title { margin:0 0 7px !important; font-size:11px !important; }
+.bn-hero-top .bn-countdown__item { padding:8px 4px; }
+.bn-hero-top .bn-countdown__digits { font-size:26px; }
+.bn-hero-top .bn-countdown__label { font-size:9px; }
+@media(min-width:641px) and (max-height:720px) {
+ .elementor-103645 .elementor-element.elementor-element-822c013 { padding-block:12px !important; }
+ .elementor-103645 .elementor-element.elementor-element-b1e678b { gap:10px !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__logo { height:9svh !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__mockups { height:31svh !important; }
+ .bn-hero-art { gap:6px; }
+}
+@media(max-width:640px) {
+ .elementor-103645 .elementor-element.elementor-element-822c013 { padding:16px 18px 24px !important; }
+ .elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner { gap:14px !important; }
+ .elementor-103645 .elementor-element.elementor-element-b1e678b { gap:16px !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__logo { height:8svh !important; max-height:70px !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__mockups { height:22svh !important; max-height:205px !important; }
+ .bn-hero-art { gap:8px; }
+ .elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(22px,5.8vw,26px) !important; line-height:1.18 !important; text-wrap:balance; }
+ .bn-headline-line { white-space:normal; }
+ .bn-hero-sub { font-size:14px !important; line-height:1.5 !important; max-width:370px; }
+ .bn-hero-top .bn-countdown { max-width:340px; width:100%; }
+ .bn-hero-top .bn-countdown__digits { font-size:23px; }
+ .bn-hero-top .bn-countdown__label { font-size:8px; }
+ .bn-hero-top .bn-countdown__title { font-size:10px !important; }
+ .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { min-height:50px; padding:15px 10px !important; }
+ .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button-text { font-size:clamp(10px,2.85vw,12px) !important; }
+ .elementor-103645 .elementor-element.elementor-element-ea19937 { padding-top:24px !important; }
+}
+@media(max-width:640px) and (max-height:700px) {
+ .elementor-103645 .elementor-element.elementor-element-822c013 { padding:12px 16px 20px !important; }
+ .elementor-103645 .elementor-element.elementor-element-b1e678b { gap:12px !important; }
+ .elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner { gap:10px !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__logo { height:7svh !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__mockups { height:20svh !important; }
+ .elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(20px,5.6vw,23px) !important; }
+ .bn-hero-sub { font-size:12.5px !important; }
+ .bn-hero-top .bn-countdown__item { padding:6px 2px; }
+ .bn-hero-top .bn-countdown__digits { font-size:20px; }
+}
