@@ -1782,3 +1782,16 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
  .elementor-103645 .bn-hero-art .bn-hero-art__mockups { height:18svh !important; }
  .elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(19px,5.2vw,22px) !important; }
 }
+
+/* Pulsação discreta do mockup da primeira dobra. */
+.elementor-103645 .bn-hero-art .bn-hero-art__mockups {
+  transform-origin:center;
+  animation:bn-mockup-pulse 5s ease-in-out infinite;
+}
+@keyframes bn-mockup-pulse {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.018); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .elementor-103645 .bn-hero-art .bn-hero-art__mockups { animation:none; }
+}
