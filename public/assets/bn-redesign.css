@@ -1669,3 +1669,6 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 @media(min-width:1025px){ .bn-bonus__group:nth-of-type(n+3) .bn-bonus__grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
 @media(max-width:900px){ .bn-bonus__grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:560px){ .bn-bonus { padding:44px 20px 56px; } .bn-bonus__grid { grid-template-columns:1fr; } .bn-bonus__card img { max-height:260px; object-fit:contain; } }
+
+/* Capas originais enviadas para os bônus. */
+.bn-bonus__card img.bn-bonus__cover { width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#0a0d14; margin-bottom:24px; max-height:none; }
