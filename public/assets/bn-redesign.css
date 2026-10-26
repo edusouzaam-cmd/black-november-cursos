@@ -1795,3 +1795,31 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 @media(prefers-reduced-motion:reduce) {
   .elementor-103645 .bn-hero-art .bn-hero-art__mockups { animation:none; }
 }
+
+/* Carrossel contínuo dos oito bônus, com pausa e rolagem manual. */
+.bn-bonus--carousel { max-width:1440px; overflow:hidden; }
+.bn-bonus--carousel .bn-bonus__intro { max-width:950px; margin-bottom:24px; }
+.bn-bonus__pause { accent-color:#00a4f3; width:16px; height:16px; vertical-align:middle; margin:0 8px 20px 0; }
+.bn-bonus__pause-label { color:var(--bn-muted); font-size:13px; cursor:pointer; }
+.bn-bonus__viewport { overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; scrollbar-color:#007cba transparent; padding:8px 0 16px; }
+.bn-bonus__viewport:focus-visible { outline:2px solid #00c2ff; outline-offset:4px; border-radius:8px; }
+.bn-bonus__track { display:flex; width:max-content; animation:bn-bonus-scroll 50s linear infinite; }
+.bn-bonus__sequence { display:flex; gap:24px; padding-right:24px; }
+.bn-bonus--carousel .bn-bonus__card { flex:0 0 300px; width:300px; }
+.bn-bonus--carousel .bn-bonus__card img { height:190px; width:100%; object-fit:contain; margin-bottom:20px; background:#0a0d14; }
+.bn-bonus--carousel .bn-bonus__card > div { padding:0 22px 24px; }
+.bn-bonus__viewport:hover .bn-bonus__track,
+.bn-bonus__viewport:focus-within .bn-bonus__track,
+.bn-bonus__pause:checked ~ .bn-bonus__viewport .bn-bonus__track { animation-play-state:paused; }
+@keyframes bn-bonus-scroll { to { transform:translateX(-50%); } }
+@media(max-width:640px) {
+ .bn-bonus--carousel { padding-inline:18px; }
+ .bn-bonus--carousel .bn-bonus__card { width:76vw; flex-basis:76vw; max-width:300px; }
+ .bn-bonus__sequence { gap:16px; padding-right:16px; }
+ .bn-bonus--carousel .bn-bonus__card h4 { font-size:17px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .bn-bonus__track { animation:none; }
+ .bn-bonus__sequence[aria-hidden] { display:none; }
+ .bn-bonus__pause,.bn-bonus__pause-label { display:none; }
+}
