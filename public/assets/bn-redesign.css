@@ -1875,3 +1875,31 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
  .bn-bonus--carousel .bn-bonus__card,
  .bn-bonus--carousel .bn-bonus__card img { border-radius:16px; }
 }
+
+/* Destaque ampliado sem contorno branco, com desfoque leve ao redor. */
+.bn-bonus--carousel .bn-bonus__card:hover { outline:none !important; }
+.bn-bonus--carousel .bn-bonus__card:focus-visible { outline:2px solid #00a4f3; outline-offset:3px; }
+@media(hover:hover) and (min-width:1025px) {
+ .bn-bonus--carousel { overflow:visible; position:relative; z-index:1; }
+ .bn-bonus--carousel:has(.bn-bonus__card:hover) { z-index:5; }
+ .bn-bonus--carousel .bn-bonus__viewport {
+   overflow:visible; clip-path:inset(-180px 0 -180px);
+ }
+ .bn-bonus--carousel .bn-bonus__card {
+   transition:transform .4s cubic-bezier(.2,.7,.2,1),filter .35s ease,opacity .35s ease,box-shadow .35s ease;
+ }
+ .bn-bonus--carousel .bn-bonus__card:hover,
+ .bn-bonus--carousel .bn-bonus__card:focus-visible {
+   transform:scale(2); z-index:10;
+   box-shadow:0 20px 55px rgba(0,0,0,.55);
+ }
+ .bn-bonus--carousel .bn-bonus__viewport:has(.bn-bonus__card:hover) .bn-bonus__card:not(:hover),
+ .bn-bonus--carousel .bn-bonus__viewport:has(.bn-bonus__card:focus-visible) .bn-bonus__card:not(:focus-visible) {
+   filter:blur(1.2px); opacity:.78;
+ }
+ .bn-bonus--carousel .bn-bonus__card:hover img,
+ .bn-bonus--carousel .bn-bonus__card:focus-visible img { transform:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .bn-bonus--carousel .bn-bonus__card { transition:none; }
+}
