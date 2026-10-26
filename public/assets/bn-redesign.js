@@ -185,3 +185,60 @@
  }
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
+
+/* Ampliação em top layer: nunca herda o recorte lateral do carrossel. */
+(function(){
+ function init(){
+  var root=document.querySelector(".bn-bonus--carousel");
+  if(!root||!window.matchMedia("(hover:hover)").matches)return;
+  var preview=document.createElement("div");
+  preview.className="bn-bonus-preview";preview.setAttribute("popover","manual");
+  document.body.appendChild(preview);
+  var active=null,closeTimer=0,oldWidth=0;
+  function close(){
+   clearTimeout(closeTimer);
+   if(preview.matches(":popover-open"))preview.hidePopover();
+   root.classList.remove("bn-bonus--preview-open");active=null;
+  }
+  function scheduleClose(){clearTimeout(closeTimer);closeTimer=setTimeout(function(){if(!preview.matches(":hover")&&!(active&&active.matches(":hover")))close();},140);}
+  function position(){
+   if(!active)return;
+   var r=active.getBoundingClientRect(),margin=16;
+   var width=Math.min(r.width*2,window.innerWidth-margin*2,680);
+   preview.style.width=width+"px";
+   preview.style.maxHeight=(window.innerHeight-margin*2)+"px";
+   var height=preview.getBoundingClientRect().height;
+   var left=Math.max(margin,Math.min(r.left+r.width/2-width/2,window.innerWidth-width-margin));
+   var top=Math.max(margin,Math.min(r.top+r.height/2-height/2,window.innerHeight-height-margin));
+   preview.style.left=left+"px";preview.style.top=top+"px";
+  }
+  function open(card){
+   clearTimeout(closeTimer);
+   if(active===card)return;
+   active=card;
+   preview.replaceChildren();
+   var img=card.querySelector("img").cloneNode(true);
+   img.loading="eager";img.removeAttribute("width");img.removeAttribute("height");
+   preview.appendChild(img);
+   preview.appendChild(card.querySelector("div").cloneNode(true));
+   preview.setAttribute("aria-label",card.querySelector("h4").textContent);
+   root.classList.add("bn-bonus--preview-open");
+   if(!preview.matches(":popover-open"))preview.showPopover();
+   position();
+   img.addEventListener("load",position,{once:true});
+  }
+  root.querySelectorAll(".bn-bonus__card").forEach(function(card){
+   card.addEventListener("pointerenter",function(event){if(event.pointerType!=="touch")open(card);});
+   card.addEventListener("pointerleave",scheduleClose);
+   card.addEventListener("focus",function(){open(card);});
+   card.addEventListener("blur",scheduleClose);
+  });
+  preview.addEventListener("pointerenter",function(){clearTimeout(closeTimer);});
+  preview.addEventListener("pointerleave",scheduleClose);
+  preview.addEventListener("click",close);
+  document.addEventListener("keydown",function(event){if(event.key==="Escape")close();});
+  window.addEventListener("resize",close);
+  window.addEventListener("scroll",close,{passive:true});
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+})();

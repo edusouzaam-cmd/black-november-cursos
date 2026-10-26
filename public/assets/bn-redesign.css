@@ -1924,3 +1924,25 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 .bn-bonus-dialog h3 { color:#fff; font-size:clamp(21px,4vw,29px); line-height:1.25; margin:12px 0; overflow-wrap:anywhere; }
 .bn-bonus-dialog p { color:#bdc9da; font-size:15px; line-height:1.65; margin:0; }
 @media(max-width:640px) { .bn-bonus-dialog__body { padding:20px; } }
+
+/* A capa ampliada é independente do track e do clip-path. */
+@media(hover:hover) {
+ .bn-bonus--carousel .bn-bonus__card:hover,
+ .bn-bonus--carousel .bn-bonus__card:focus-visible { transform:none !important; box-shadow:none !important; }
+ .bn-bonus--carousel.bn-bonus--preview-open .bn-bonus__track { animation-play-state:paused; }
+ .bn-bonus--carousel.bn-bonus--preview-open .bn-bonus__card { filter:blur(1px); opacity:.8; }
+}
+.bn-bonus-preview {
+ position:fixed; inset:auto; margin:0; padding:0; border:0; border-radius:20px;
+ box-sizing:border-box; overflow:auto; background:#080e18; color:#fff;
+ box-shadow:0 20px 70px rgba(0,0,0,.6); font-family:var(--bn-font); cursor:pointer;
+}
+.bn-bonus-preview::backdrop { background:rgba(3,7,13,.12); backdrop-filter:blur(1px); pointer-events:none; }
+.bn-bonus-preview > img {
+ display:block; width:100%; height:auto; max-height:46dvh; object-fit:contain;
+ background:#080e18; border-radius:20px 20px 0 0;
+}
+.bn-bonus-preview > div { padding:0 26px 26px; }
+.bn-bonus-preview .bn-bonus__meta { font-size:14px; color:#b8c4d4; }
+.bn-bonus-preview h4 { font-size:clamp(22px,2.2vw,30px); line-height:1.25; margin:10px 0 12px; color:#fff; overflow-wrap:break-word; }
+.bn-bonus-preview p { display:block; font-size:clamp(15px,1.5vw,20px); line-height:1.5; color:#bdc9da; margin:0; }
