@@ -1672,3 +1672,33 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 
 /* Capas originais enviadas para os bônus. */
 .bn-bonus__card img.bn-bonus__cover { width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#0a0d14; margin-bottom:24px; max-height:none; }
+
+/* Primeira dobra: headline em duas linhas e CTA sempre legível. */
+.elementor-103645 .elementor-element.elementor-element-b1e678b { max-width:1200px !important; }
+.elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(28px,3vw,40px) !important; line-height:1.18 !important; }
+.bn-headline-line { display:block; }
+.elementor-103645 .elementor-element.elementor-element-dd1525c { max-width:620px !important; }
+.elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { border-radius:999px !important; background:linear-gradient(110deg,#00c6ff,#0066ff,#214cde,#00baff) !important; background-size:300% 100% !important; animation:bn-cta-gradient 5s ease-in-out infinite !important; padding:20px 28px !important; }
+.elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button-text { white-space:nowrap; font-size:16px !important; letter-spacing:0 !important; }
+@keyframes bn-cta-gradient { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+@media(min-width:1100px) { .bn-headline-line { white-space:nowrap; } }
+@media(max-width:640px) {
+ .elementor-103645 .elementor-element.elementor-element-822c013 { padding:14px 16px 20px !important; }
+ .elementor-103645 .elementor-element.elementor-element-822c013 > .e-con-inner { gap:10px !important; }
+ .bn-hero-top { margin:0 !important; gap:0 !important; }
+ .bn-countdown__title { margin:0 0 6px !important; font-size:10px !important; }
+ .bn-hero-top .bn-countdown__item { padding:6px 2px; }
+ .bn-hero-top .bn-countdown__digits { font-size:20px; }
+ .bn-hero-top .bn-countdown__label { font-size:8px; }
+ .elementor-103645 .elementor-element.elementor-element-b1e678b { gap:12px !important; padding:0 !important; }
+ .elementor-103645 .elementor-element.elementor-element-e60d67c { margin:0 !important; }
+ .bn-hero-art { gap:6px; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__logo { width:auto !important; max-height:9svh !important; max-width:120px !important; }
+ .elementor-103645 .bn-hero-art .bn-hero-art__mockups { width:auto !important; max-width:100% !important; height:23svh !important; object-fit:contain; }
+ .elementor-103645 .elementor-element.elementor-element-5b76344 h1 { font-size:clamp(19px,5.2vw,24px) !important; line-height:1.16 !important; }
+ .bn-hero-sub { font-size:12px !important; line-height:1.5 !important; max-width:360px; }
+ .elementor-103645 .elementor-element.elementor-element-81dd902 { display:none !important; }
+ .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { padding:14px 10px !important; min-height:46px; }
+ .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button-text { font-size:clamp(10px,2.9vw,13px) !important; }
+}
+@media(prefers-reduced-motion:reduce) { .elementor-103645 .elementor-element.elementor-element-dd1525c .elementor-button { animation:none !important; } }
