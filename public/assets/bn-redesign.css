@@ -1865,3 +1865,13 @@ html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
  .bn-bonus--carousel .bn-bonus__card,
  .bn-bonus--carousel .bn-bonus__card img { transition:none; }
 }
+
+/* Bordas arredondadas nas capas e nos cards dos cursos. */
+.bn-bonus--carousel .bn-bonus__card { border-radius:18px; }
+.bn-bonus--carousel .bn-bonus__card img { border-radius:18px; }
+.bn-course__media { border-radius:18px; overflow:hidden; }
+.bn-course__media img { border-radius:18px; }
+@media(max-width:640px) {
+ .bn-bonus--carousel .bn-bonus__card,
+ .bn-bonus--carousel .bn-bonus__card img { border-radius:16px; }
+}
