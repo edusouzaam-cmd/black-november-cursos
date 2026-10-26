@@ -143,3 +143,45 @@
  }
  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
+
+/* Abre qualquer bônus por inteiro na camada superior, fora do recorte do carrossel. */
+(function () {
+ function init() {
+  var root=document.querySelector(".bn-bonus--carousel");
+  if(!root)return;
+  var dialog=document.createElement("dialog");
+  dialog.className="bn-bonus-dialog";
+  dialog.setAttribute("aria-labelledby","bn-bonus-dialog-title");
+  dialog.innerHTML='<button class="bn-bonus-dialog__close" type="button" aria-label="Fechar detalhes do bônus" autofocus>×</button><img class="bn-bonus-dialog__image" alt=""><div class="bn-bonus-dialog__body"><span class="bn-bonus-dialog__meta"></span><h3 id="bn-bonus-dialog-title"></h3><p></p></div>';
+  document.body.appendChild(dialog);
+  var opener=null,previousOverflow="";
+  function open(card) {
+   var img=card.querySelector("img"),title=card.querySelector("h4"),description=card.querySelector("p"),meta=card.querySelector(".bn-bonus__meta");
+   dialog.querySelector("img").src=img.currentSrc||img.src;
+   dialog.querySelector("img").alt=img.alt;
+   dialog.querySelector("h3").textContent=title.textContent;
+   dialog.querySelector("p").textContent=description?description.textContent:"";
+   dialog.querySelector(".bn-bonus-dialog__meta").textContent=meta?meta.textContent:"";
+   opener=card;previousOverflow=document.documentElement.style.overflow;
+   dialog.showModal();dialog.scrollTop=0;document.documentElement.style.overflow="hidden";
+  }
+  root.querySelectorAll(".bn-bonus__sequence[inert]").forEach(function(sequence){
+   sequence.removeAttribute("inert");
+   sequence.querySelectorAll(".bn-bonus__card").forEach(function(card){card.tabIndex=-1;});
+  });
+  root.querySelectorAll(".bn-bonus__card").forEach(function(card){
+   card.setAttribute("role","button");card.setAttribute("aria-haspopup","dialog");
+   card.setAttribute("aria-label","Ver detalhes: "+card.querySelector("h4").textContent);
+   card.addEventListener("click",function(){open(card);});
+   card.addEventListener("keydown",function(event){if(event.key==="Enter"||event.key===" "){event.preventDefault();open(card);}});
+  });
+  dialog.querySelector("button").addEventListener("click",function(){dialog.close();});
+  dialog.addEventListener("click",function(event){
+   if(event.target!==dialog)return;
+   var r=dialog.getBoundingClientRect();
+   if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();
+  });
+  dialog.addEventListener("close",function(){document.documentElement.style.overflow=previousOverflow;if(opener)opener.focus({preventScroll:true});});
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+})();
