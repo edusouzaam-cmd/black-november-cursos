@@ -9,7 +9,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const kinghost = process.env["KINGHOST_BUILD"] === "1";
 
 export default defineConfig({
-  ...(kinghost ? { vite: { base: "/black-cursos/" }, nitro: false } : {}),
+  vite: { server: { allowedHosts: ["terminal.local"] }, ...(kinghost ? { base: "/black-cursos/" } : {}) },
+  ...(kinghost ? { nitro: false } : {}),
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
