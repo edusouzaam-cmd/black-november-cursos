@@ -249,7 +249,7 @@
   var root=document.querySelector('[data-testimonials]');if(!root)return;
   var viewport=root.querySelector('[data-testimonial-viewport]'),track=root.querySelector('[data-testimonial-track]'),slides=Array.from(root.querySelectorAll('[data-testimonial-slide]')),pagination=root.querySelector('[data-testimonial-pagination]');
   var index=0,timer=null,paused=false,startX=null;
-  function height(){viewport.style.height=slides[index].getBoundingClientRect().height+'px';}
+  function height(){viewport.style.setProperty('--bn-carousel-height',slides[index].getBoundingClientRect().height+'px');}
   function show(next){index=(next+slides.length)%slides.length;track.style.transform='translateX(-'+index*100+'%)';slides.forEach(function(s,i){s.setAttribute('aria-hidden',String(i!==index));s.inert=i!==index;});Array.from(pagination.children).forEach(function(b,i){b.setAttribute('aria-current',String(i===index));});height();}
   function schedule(){clearInterval(timer);if(!paused&&!matchMedia('(prefers-reduced-motion:reduce)').matches)timer=setInterval(function(){show(index+1);},5000);}
   slides.forEach(function(s,i){s.setAttribute('aria-label',(i+1)+' / '+slides.length);var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir ao depoimento '+(i+1));b.addEventListener('click',function(){show(i);schedule();});pagination.appendChild(b);});

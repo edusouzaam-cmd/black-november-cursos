@@ -12,6 +12,13 @@ describe('Native offer delivery',()=>{
    for(const m of source.matchAll(/\/assets\/[\w./-]+/g))expect(existsSync('public'+m[0]),m[0]).toBe(true);
   }
  });
+ it('keeps standalone fonts and SVG masks without plugin background suppression',()=>{
+  const css=readFileSync('public/assets/offer.css','utf8');
+  expect(css).not.toMatch(/e-lazyloaded|e-no-lazyload/);
+  expect(css).toContain('poppins-400-full.woff2');
+  expect(css).toContain('data:image/svg+xml');
+  expect(css).toContain('font-family:var(--bn-font)!important');
+ });
  it('keeps purchase links, support and the three course dialogs',()=>{
   expect(html.match(/pay\.hotmart\.com/g)?.length).toBe(3);
   expect(html).toContain('5561996502757');
