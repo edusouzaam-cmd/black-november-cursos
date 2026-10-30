@@ -13,6 +13,14 @@ for (const f of [...pages, "favicon.ico", "robots.txt", "sitemap.xml", "htaccess
   assert(existsSync(`${root}/${f}`), `Ausente: ${f}`);
 assert(!existsSync(`${root}/.htaccess`));
 const files = walk(root);
+for (const file of files) {
+  const relative = file.slice(root.length + 1);
+  assert(relative.length <= 140, `Caminho longo demais para extração: ${relative}`);
+  assert(
+    relative.split("/").every((part) => part.length <= 64),
+    `Nome longo demais: ${relative}`,
+  );
+}
 for (const f of files)
   assert(
     !/(?:^|\/)(?:src|node_modules|\.git|\.env[^/]*)(?:\/|$)|\.(?:tsx?|php|map|zip)$/.test(f),

@@ -8,7 +8,8 @@ import {
   statSync,
   writeFileSync,
 } from "node:fs";
-import { resolve } from "node:path";
+import { resolve, posix } from "node:path";
+import { createHash } from "node:crypto";
 const root = "kinghost-package";
 const base = "/black-cursos/";
 const production = `https://engeteles.com.br${base}`;
@@ -161,6 +162,52 @@ ${["", "termos-de-uso.html", "politica-de-privacidade.html"].map((p) => `  <url>
 </urlset>
 `,
 );
+// Keep extraction paths short enough for Windows Explorer's legacy limit.
+// Preserve directory relationships for CSS fonts and dynamic script chunks.
+const compactPrefixes = [
+  ["mirror/engeteles.com.br/wp-content/", "assets/wp/"],
+  ["mirror/engeteles.com.br/wp-includes/", "assets/wi/"],
+  ["mirror/", "assets/m/"],
+];
+const replacements = [...compactPrefixes];
+for (const file of walk(root)) {
+  const name = posix.basename(file);
+  if (name.length > 64) {
+    const short =
+      createHash("sha256").update(name).digest("hex").slice(0, 16) + posix.extname(name);
+    replacements.push([name, short]);
+  }
+}
+function compact(text) {
+  for (const [from, to] of replacements) {
+    text = text
+      .replaceAll(from, to)
+      .replaceAll(from.replaceAll("/", "\\/"), to.replaceAll("/", "\\/"))
+      .replaceAll(encodeURI(from), encodeURI(to));
+  }
+  return text;
+}
+const originalFiles = walk(root);
+for (const file of originalFiles) {
+  const relative = file.slice(root.length + 1);
+  const target = `${root}/${compact(relative)}`;
+  let data = readFileSync(file);
+  if (/\.(?:html|css|js|json|svg|xml|txt)$/.test(file))
+    data = Buffer.from(compact(data.toString("utf8")));
+  mkdirSync(posix.dirname(target), { recursive: true });
+  writeFileSync(target, data);
+  if (target !== file) rmSync(file);
+}
+function removeEmpty(dir) {
+  for (const name of readdirSync(dir)) {
+    const path = `${dir}/${name}`;
+    if (statSync(path).isDirectory()) {
+      removeEmpty(path);
+      if (!readdirSync(path).length) rmSync(path, { recursive: true });
+    }
+  }
+}
+removeEmpty(root);
 console.log(
   `Exportado HTML existente para ${resolve(root)}; Vite compilado em dist/client, sem incluir runtime de servidor.`,
 );
