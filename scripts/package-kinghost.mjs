@@ -35,7 +35,16 @@ function paths(text) {
     .replace(/(?<![\w/])\/(assets|mirror)\//g, `${base}$1/`)
     .replace(/(?<=["'=])\/(termos-de-uso|politica-de-privacidade)\.html/g, `${base}$1.html`)
     .replace(/(?<=["'=])\/favicon\.ico/g, `${base}favicon.ico`)
-    .replace(/href=(['"])\/(#[^'"\s]*)?\1/g, (_, q, hash = "") => `href=${q}${base}${hash}${q}`);
+    .replace(/href=(['"])\/(#[^'"\s]*)?\1/g, (_, q, hash = "") => `href=${q}${base}${hash}${q}`)
+    .replaceAll(
+      `CDN_BASE_URL:"${base}mirror/connect.facebook.net/"`,
+      'CDN_BASE_URL:"https://connect.facebook.net/"',
+    )
+    .replaceAll(
+      `${base}mirror/connect.facebook.net/log/fbevents_telemetry/`,
+      "https://connect.facebook.net/log/fbevents_telemetry/",
+    )
+    .replaceAll(`${base}mirror/px.ads.linkedin.com/collect`, "https://px.ads.linkedin.com/collect");
 }
 function metadata(html, page = "") {
   const url = production + page;
