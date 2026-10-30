@@ -50,13 +50,16 @@ try {
   const page = await browser.newPage();
   const errors = [],
     missing = [];
-  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("pageerror", (e) => {
+    errors.push(e.message);
+    console.log("PAGEERROR", e.message);
+  });
   page.on("response", (r) => {
     if (r.url().startsWith(origin) && r.status() >= 400) missing.push(r.url());
   });
   // Third-party services remain external; avoid depending on them for this check.
   await page.route(/https:\/\/.*/, (route) => route.abort());
-  await page.goto(`${origin}/black-cursos/`, { waitUntil: "networkidle" });
+  await page.goto(`${origin}/black-cursos/`, { waitUntil: "domcontentloaded" });
   await page.locator(".bn-countdown__digits").first().waitFor();
   for (const [path, title] of [
     ["termos-de-uso", "Termos de Uso"],
@@ -65,7 +68,7 @@ try {
     await page.getByRole("link", { name: title, exact: true }).first().click();
     await page.getByRole("heading", { name: title, exact: true }).waitFor();
     assert(new URL(page.url()).pathname.startsWith(`/black-cursos/${path}.html`));
-    await page.reload({ waitUntil: "networkidle" });
+    await page.reload({ waitUntil: "domcontentloaded" });
     await page.getByRole("heading", { name: title, exact: true }).waitFor();
     assert.equal(
       await page.locator('link[rel="canonical"]').getAttribute("href"),
@@ -76,7 +79,7 @@ try {
   await page.waitForURL(`${origin}/black-cursos/`);
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.reload({ waitUntil: "networkidle" });
+    await page.reload({ waitUntil: "domcontentloaded" });
     await page.evaluate(async () => {
       for (const img of document.images) {
         img.loading = "eager";
