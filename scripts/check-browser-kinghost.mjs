@@ -63,7 +63,7 @@ try {
       return route.fulfill({ contentType: "application/json", body: "{}" });
     return route.abort();
   });
-  await page.goto(`${origin}/black-cursos/`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/black-cursos/`, { waitUntil: "load" });
   await page.locator(".bn-countdown__digits").first().waitFor();
   for (const [path, title] of [
     ["termos-de-uso", "Termos de Uso"],
@@ -72,7 +72,7 @@ try {
     await page.getByRole("link", { name: title, exact: true }).first().click();
     await page.getByRole("heading", { name: title, exact: true }).waitFor();
     assert(new URL(page.url()).pathname.startsWith(`/black-cursos/${path}.html`));
-    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.reload({ waitUntil: "load" });
     await page.getByRole("heading", { name: title, exact: true }).waitFor();
     assert.equal(
       await page.locator('link[rel="canonical"]').getAttribute("href"),
@@ -83,7 +83,7 @@ try {
   await page.waitForURL(`${origin}/black-cursos/`);
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.reload({ waitUntil: "load" });
     await page.evaluate(async () => {
       for (const img of document.images) {
         img.loading = "eager";

@@ -164,12 +164,7 @@ ${["", "termos-de-uso.html", "politica-de-privacidade.html"].map((p) => `  <url>
 );
 // Keep extraction paths short enough for Windows Explorer's legacy limit.
 // Preserve directory relationships for CSS fonts and dynamic script chunks.
-const compactPrefixes = [
-  ["mirror/engeteles.com.br/wp-content/", "assets/wp/"],
-  ["mirror/engeteles.com.br/wp-includes/", "assets/wi/"],
-  ["mirror/", "assets/m/"],
-];
-const replacements = [...compactPrefixes];
+const replacements = [];
 for (const file of walk(root)) {
   const name = posix.basename(file);
   if (name.length > 64) {
