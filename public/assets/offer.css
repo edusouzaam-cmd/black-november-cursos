@@ -3,3 +3,9 @@
 
 /* Uniform blue outlines for all four benefit blocks. */
 .bn-n13 .bn-n44 .bn-n149{border-color:#00c3ff!important;color:#00c3ff!important;fill:#00c3ff!important}
+
+/* Larger hit areas retain the original small pagination dots. */
+.bn-n13 [data-testimonial-pagination]{gap:2px!important;padding:0!important}
+.bn-n13 [data-testimonial-pagination] button{position:relative;width:28px!important;height:28px!important;border-radius:0!important;background:transparent!important}
+.bn-n13 [data-testimonial-pagination] button::after{content:"";position:absolute;top:10px;left:10px;width:8px;height:8px;border-radius:8px;background:#687382}
+.bn-n13 [data-testimonial-pagination] button[aria-current=true]::after{left:3px;width:22px;background:#00a4f3}
