@@ -78,23 +78,47 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Combo 3 Certificações | Black November ENGETELES" },
+      {
+        name: "description",
+        content:
+          "3 certificações completas pelo preço de uma: PCM, GFM e RCM. Conheça a oferta Black November ENGETELES.",
+      },
+      { name: "author", content: "Engeteles" },
+      { property: "og:title", content: "Combo 3 Certificações | Black November ENGETELES" },
+      {
+        property: "og:description",
+        content:
+          "3 certificações completas pelo preço de uma: PCM, GFM e RCM. Conheça a oferta Black November ENGETELES.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:url", content: "https://engeteles.com.br/black-cursos/" },
+      { property: "og:locale", content: "pt_BR" },
     ],
     links: [
+      { rel: "canonical", href: "https://engeteles.com.br/black-cursos/" },
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/assets/favicon/engeteles-32.png", type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: "/assets/favicon/engeteles-192.png", type: "image/png", sizes: "192x192" },
-      { rel: "apple-touch-icon", href: "/assets/favicon/engeteles-180.png", sizes: "180x180" },
+      {
+        rel: "icon",
+        href: `${import.meta.env.BASE_URL}assets/favicon/engeteles-32.png`,
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        rel: "icon",
+        href: `${import.meta.env.BASE_URL}assets/favicon/engeteles-192.png`,
+        type: "image/png",
+        sizes: "192x192",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: `${import.meta.env.BASE_URL}assets/favicon/engeteles-180.png`,
+        sizes: "180x180",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -105,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

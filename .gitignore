@@ -30,3 +30,6 @@ node_modules
 *.njsproj
 *.sln
 *.sw?
+
+# Pacote estático para publicação manual
+kinghost-package/
