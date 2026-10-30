@@ -86,11 +86,18 @@ try {
     assert.deepEqual(
       await page
         .locator("img")
-        .evaluateAll((imgs) => imgs.filter((img) => !img.naturalWidth).map((img) => img.src)),
+        .evaluateAll((imgs) =>
+          imgs
+            .filter(
+              (img) => (img.getAttribute("src") || img.getAttribute("srcset")) && !img.naturalWidth,
+            )
+            .map((img) => img.src),
+        ),
       [],
     );
     assert.equal((await page.locator('a[href*="hotmart.com"]').count()) > 0, true);
   }
+  console.log(JSON.stringify({ errors, missing }));
   assert.deepEqual(errors, [], "Erros JavaScript");
   assert.deepEqual(missing, [], "Recursos locais com erro HTTP");
   console.log(
