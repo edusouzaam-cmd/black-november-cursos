@@ -12,8 +12,10 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build:kinghost": "KINGHOST_BUILD=1 vite build && node scripts/package-kinghost.mjs",
-    "validate:kinghost": "node scripts/validate-kinghost.mjs"
+    "build:kinghost": "node scripts/prepare-offer.mjs && KINGHOST_BUILD=1 vite build && node scripts/package-kinghost.mjs",
+    "validate:kinghost": "node scripts/validate-kinghost.mjs",
+    "predev": "node scripts/prepare-offer.mjs",
+    "prebuild": "node scripts/prepare-offer.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"

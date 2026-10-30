@@ -1,4 +1,5 @@
 import "./lib/error-capture";
+import offerHtml from "./content/passaporte.html?raw";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
@@ -47,6 +48,10 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      if ((request.method === "GET" || request.method === "HEAD") && (url.pathname === "/" || url.pathname === "/black-cursos/")) {
+        return new Response(request.method === "HEAD" ? null : offerHtml, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=0, must-revalidate" } });
+      }
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
