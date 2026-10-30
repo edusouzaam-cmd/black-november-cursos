@@ -20,6 +20,17 @@ export function walk(dir) {
 }
 function paths(text) {
   // Handle HTML attributes, inline JSON/JS and CSS without touching external URLs.
+  for (const directory of [
+    "wp-content/plugins/elementor/assets/",
+    "wp-content/plugins/elementor-pro/assets/",
+    "wp-content/themes/blocksy/static/bundle/",
+  ]) {
+    const original = `https://engeteles.com.br/${directory}`;
+    const local = `${base}mirror/engeteles.com.br/${directory}`;
+    text = text
+      .replaceAll(original, local)
+      .replaceAll(original.replaceAll("/", "\\/"), local.replaceAll("/", "\\/"));
+  }
   return text
     .replace(/(?<![\w/])\/(assets|mirror)\//g, `${base}$1/`)
     .replace(/(?<=["'=])\/(termos-de-uso|politica-de-privacidade)\.html/g, `${base}$1.html`)
@@ -71,6 +82,7 @@ function metadata(html, page = "") {
     cpSync(file, `${file}.js`);
     return `${before}${base}${relative}.js${quote}`;
   });
+  html = html.replace(/(<script[^>]*id=(?:jquery-bind-first-js|js-cookie-pys-js)) defer/g, "$1");
   return html;
 }
 rmSync(root, { recursive: true, force: true });
@@ -98,6 +110,12 @@ for (const file of walk(root)) {
       );
     writeFileSync(file, text);
   }
+}
+// Elementor resolves dynamic chunks by their original filenames; provide
+// aliases for cache-hashed copies already stored in the repository.
+for (const file of walk(root)) {
+  const alias = file.replace(/\.q[a-z0-9]+(?=\.(?:js|css|woff2?|ttf|eot)$)/, "");
+  if (alias !== file && !existsSync(alias)) cpSync(file, alias);
 }
 for (const page of ["", "termos-de-uso.html", "politica-de-privacidade.html"]) {
   const source = page ? `public/${page}` : "src/content/passaporte.html";

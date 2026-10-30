@@ -58,7 +58,11 @@ try {
     if (r.url().startsWith(origin) && r.status() >= 400) missing.push(r.url());
   });
   // Third-party services remain external; avoid depending on them for this check.
-  await page.route(/https:\/\/.*/, (route) => route.abort());
+  await page.route(/https:\/\/.*/, (route) => {
+    if (["fetch", "xhr"].includes(route.request().resourceType()))
+      return route.fulfill({ contentType: "application/json", body: "{}" });
+    return route.abort();
+  });
   await page.goto(`${origin}/black-cursos/`, { waitUntil: "domcontentloaded" });
   await page.locator(".bn-countdown__digits").first().waitFor();
   for (const [path, title] of [
